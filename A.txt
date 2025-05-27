@@ -1,0 +1,109 @@
+# Postman
+ 1. Login Route
+POST http://localhost:5000/api/auth/login
+
+{
+  "username": "admin",
+  "password": "12345"
+}
+
+ 2. Change Password Route
+POST http://localhost:5000/api/auth/change-password
+
+{
+  "oldPassword": "12345",
+  "newPassword": "newpassword123"
+}
+
+ 3. 
+POST http://localhost:5000/api/score/save
+
+Content-Type : application/json
+
+{
+  "scoringTeam": "Pakistan",
+  "chessingTeam": "Australia",
+  "inning1": {
+    "runs": 172,
+    "wickets": 5,
+    "overs": "19.2"
+  },
+  "inning2": {
+    "runs": 0,
+    "wickets": 0,
+    "overs": "0.0"
+  },
+  "winnerCard3": "Match ended. India won by 20 runs.",
+  "date": "12-5-23"
+}
+
+ 4. 
+GET http://localhost:5000/api/score/all
+
+ 5. 
+POST http://localhost:5000/api/matches
+
+{
+  "team1": "India",
+  "team2": "Australia",
+  "maxOver": 20,
+  "tossWinner": "India",
+  "decision": "bat"
+}
+
+ 6. 
+GET http://localhost:5000/api/matches
+
+ 7.
+PUT http://localhost:5000/api/matches/<match_id>
+Content-Type: application/json
+
+ 8.
+POST http://localhost:5000/api/admin/match
+
+{
+  "inningNo": 1,
+  "totalRuns": 110,
+  "wicketCount": 3,
+  "totalOvers": 15,
+  "ballCount": 4,
+  "battingTeam": "Team A",
+  "bowlingTeam": "Team B",
+  "status": "in-progress",
+  "inning1": {
+    "runs": 110,
+    "wickets": 3,
+    "overs": 15.4,
+    "batters": [
+      {
+        "name": "Player1",
+        "runs": 60,
+        "balls": 40,
+        "isOut": false
+      },
+      {
+        "name": "Player2",
+        "runs": 30,
+        "balls": 25,
+        "isOut": true,
+        "outType": "Bowled"
+      }
+    ],
+    "bowlers": [
+      {
+        "name": "Bowler1",
+        "overs": 4,
+        "runsConceded": 28,
+        "wickets": 2
+      }
+    ]
+  }
+}
+
+ 9. http://localhost:5000/api/admin/match
+
+
+# CMD
+
+set NODE_OPTIONS=--openssl-legacy-provider
+node server.js
